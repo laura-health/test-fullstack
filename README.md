@@ -16,7 +16,7 @@ Laura is a Cognitive Robot Risk Manager that operates integrated with data envir
 
 ## About The Challenge
 
-You will have 5 days to deliver this challenge, but be aware that we will more rigorously evaluate your code the longer it takes to deliver from the date this repository was forked.
+You will have 5 days to deliver this challenge.
 
 For this exercise, you need to build a fast, realtime chat application. You will have to develop as it is on the preview below:
 
