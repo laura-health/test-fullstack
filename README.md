@@ -20,7 +20,7 @@ You will have 5 days to deliver this challenge, but be aware that we will more r
 
 For this exercise, you need to build a fast, realtime chat application. You will have to develop as it is on the preview below:
 
-![img](https://uimovement.com/media/resource_image/video_8351.mp4)
+![](https://media.giphy.com/media/mG1KCnZZZSCffNj9pd/giphy.gif)
 
 You have to develop all features presented (chat, rooms, project tasks), also you are expected to implement a login/sign up feature.
 
