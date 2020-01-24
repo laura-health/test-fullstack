@@ -1,0 +1,30 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Robô Laura Test Documentation",
+      "description": "",
+      "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "paths": {
+      "/rooms/create": {
+        "post": {
+        "tags": ["Rooms"],
+        "description": "Creates a room with a user linked as owner",
+          "servers": [
+              {
+                "url": "http://localhost:1600/",
+                "description": "Development server"
+              }
+            ],
+        "requestBody": {
+            "content": {
+                "application/json": {
+                }
+            }
+        },
+          "responses": {}
+        }
+      }
+    }
+ }

@@ -1,0 +1,30 @@
+{
+    "name": "laura-chat-back",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon ./src/index.js",
+        "test": "nodemon ./src/tests/all.test.js | tap-spec"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.1.6",
+        "express-validator": "^6.3.1",
+        "mongoose": "^5.8.7",
+        "multer": "^1.4.2",
+        "redis": "^2.8.0",
+        "socket.io": "^2.3.0",
+        "supertest": "^4.0.2",
+        "swagger-ui-express": "^4.1.2",
+        "tap-spec": "^5.0.0",
+        "tape": "^4.13.0",
+        "uuid": "^3.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    }
+}
