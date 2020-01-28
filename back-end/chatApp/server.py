@@ -1,20 +1,13 @@
-from os import environ
 from flask import Flask
 from flask_socketio import SocketIO, send, emit
 from flask_login import current_user
-from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from bson.objectid import ObjectId
-from pymongo import MongoClient
 from flask import jsonify, request
 from werkzeug import generate_password_hash, check_password_hash
+from wtforms.validators import ValidationError
 
-app = Flask(__name__)
-
-MONGO_URI = environ.get('MONGO_URI')
-CLIENT = MongoClient(MONGO_URI)
-db = CLIENT.test
-socketIo = SocketIO(app, cors_allowed_origins="*")
+from config import app, socketIo, db
 
 
 @app.route('/api/v1/register', methods=['POST'])
@@ -23,6 +16,11 @@ def add_user():
     _name = _json['name']
     _email = _json['email']
     _password = _json['password']
+    users = db.users
+    user = users.find_one({'email': _email})
+    if user:
+        raise ValidationError('Email alredy registered.')
+    
     if _name and _email and _password and request.method == 'POST':
         _id = db.users.insert(
             {'name': _name, 'email': _email, 'pwd': _password})
@@ -68,16 +66,5 @@ def handleMessage(msg):
     return None
 
 
-@socketIo.on("connect")
-def connect_handler():
-    if current_user.is_authenticated:
-        emit('my response',
-             {'message': '{0} has joined'.format(current_user.name)},
-             broadcast=True)
-    else:
-        return False
-
-
 if __name__ == '__main__':
-    app.run()
-    # socketIo.run(app)
+    socketIo.run(app, debug=True, host="localhost")

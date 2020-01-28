@@ -6,9 +6,8 @@ import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
     backgroundColor: 'blueviolet',
-    borderRadius: 50,
+    borderRadius: 40,
     fontSize: 12,
     padding: 10,
     boxShadow: "0 0 20px solid"
@@ -22,7 +21,6 @@ export default function SendButton(props) {
     <div>
       <Button
         variant="contained"
-        color="primary"
         className={classes.button}
         endIcon={<SendIcon>send</SendIcon>}
         onClick={props.onClick}

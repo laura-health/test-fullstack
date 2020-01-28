@@ -9,17 +9,37 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { ENDPOINT } from '../api';
 
 import { useStyles } from '../makeStyles';
 
 
 export default function Register() {
   const classes = useStyles();
-  const [auth, setAuth] = useState({});
+  const [error, setError] = useState("");
+  const [auth, setAuth] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
 
   const handleSubmit = (e) => {
-    if (e) e.preventDefault();
-      console.log(auth)
+    e.preventDefault();
+    console.log(auth)
+    fetch(ENDPOINT + "/register", {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(auth)
+    })
+    .then(response => {
+      if ([400, 401, 500].includes(response.status)) {
+        throw new Error('Response status was 400, 401, or 403!');
+      }
+    
+      return response.json();
+    })
+    .then(json => console.log(json))
+    .catch(error => console.error(error))
   };
 
   const handleChange = (e) => {
@@ -27,10 +47,9 @@ export default function Register() {
     setAuth(auth => ({ ...auth, [e.target.name]: e.target.value }));
   };
 
-//   const handleSubmit = (e) => {
+  const handleClick = () => {
 
-//     axios.post('http://localhost:3000/api', { name: value })
-// }
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,6 +89,7 @@ export default function Register() {
                 onChange={handleChange}
                 value={auth.email}
               />
+              <div>{error}</div>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -91,6 +111,7 @@ export default function Register() {
             fullWidth
             variant="contained"
             className={classes.submit}
+            onClick={handleClick}
           >
             Sign Up
           </Button>

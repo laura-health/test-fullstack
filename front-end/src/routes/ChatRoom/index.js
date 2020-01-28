@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import io from "socket.io-client";
 import Grid from '@material-ui/core/Grid';
-import SendButton from '../../componentes/SendButton';
+import SendButton from '../../components/SendButton';
+import { ENDPOINT, SOCKET } from '../api';
 import '../../Styles.css';
+import ModalRight from '../../components/Modal';
 
-
-
-const ENDPOINT = "http://localhost:5000";
-const SOCKET = io.connect(`${ENDPOINT}`)
 
 
 const ChatRoom = () => {
     const [listMessages, setListMessages] = useState([""])
     const [message, setMessage] = useState("");
-    const [user, setUser] = useState("");
+    const [send, setSend] = useState(false);
+
+    const [users, setUser] = useState([""]);
     const [channels, setChannels] = useState(["General", "Product"])
 
+    async function fetchData() {
+        const res = await fetch(ENDPOINT + "/users");
+        res
+            .json()
+            .then(res => setUser(res))
+    }
+
     useEffect(() => {
-        getMessages();
-    }, [listMessages.length]);
+        getMessages()
+        fetchData();
+    }, [listMessages.length])
+
 
     const getMessages = () => {
         SOCKET.on("message", msg => {
@@ -31,17 +39,26 @@ const ChatRoom = () => {
     };
 
     const handleClick = () => {
-        setUser({ user: "Vivian" })
         if (message !== "") {
             SOCKET.emit("message", message)
             setMessage("");
+            setSend(true)
         }
-    }
+    };
+
+    const onEnterPress = (e) => {
+        if (e.keyCode == 13 && e.shiftKey == false) {
+            e.preventDefault();
+            SOCKET.emit("message", message)
+            setMessage("");
+            setSend(true)
+        }
+    };
 
     return (
         <Grid container>
             <Grid item xs={2} className="sidenav">
-                <div className="user-sidenav">{user}</div>
+                <div className="user-sidenav">Vivian}</div>
                 <div className="menu">
                     <div style={{ marginBottom: 20 }}>
                         <span className="menu-itens">Rooms</span>
@@ -51,31 +68,37 @@ const ChatRoom = () => {
                     </div>
                     <div>
                         <span className="menu-itens">Users</span>
-                        <div className="users">{users}</div>
+                        {users.map(user =>
+                            <div className="users">{user.name}</div>
+                        )}
                     </div>
                 </div>
 
             </Grid>
             <Grid item xs={10} className="chat-room">
+                <ModalRight/>
                 <div className="h-line" />
                 <div className="box-message">
                     {listMessages.length > 0 &&
                         listMessages.map(msg => (
                             <div>
-                                <span className="text-title">{user}:</span>
+                                {send == true && <span className="text-title">Vivian:</span>}
                                 <div className="text">{msg}</div>
                             </div>
                         ))}
                     <div style={{ display: 'flex' }}>
-                        <textarea className="input-message"
+                        <textarea
+                            className="input-message"
                             onChange={handleChange}
                             value={message}
                             name="message"
+                            onKeyDown={onEnterPress}
                         >
                         </textarea>
                         <SendButton
                             onClick={handleClick}
                         />
+
                     </div>
                 </div>
             </Grid>

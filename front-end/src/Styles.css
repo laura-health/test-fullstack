@@ -12,6 +12,17 @@ code {
     monospace;
 }
 
+.float-right {
+  float: right;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* chat-room */
+
 .sidenav {
   background-color: blueviolet;
   height: 800px;
@@ -109,6 +120,33 @@ code {
   text-decoration: none;
 
 }
+
+/* modal */
+.modal-title {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color:#383838;
+  text-transform: uppercase;
+}
+
+.modal-container{
+  position: relative;
+  right: 60px;
+  top: 20px;
+  float: right;
+}
+
+/* Input */
+.search-input {
+  display: 'flex';
+  flex-wrap: 'wrap';
+  width:300px;
+  margin-left: 25px;
+  margin-top: 40px;
+}
+
+
 
 
 
