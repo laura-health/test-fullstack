@@ -1,3 +1,16 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
 .sidenav {
   background-color: blueviolet;
@@ -49,17 +62,59 @@
   background-color: #dfdada;
 }
 
-.box-message {
+.input-message {
   max-height: 100px;
   width: 1000px;
-  position: absolute;
-  bottom: 25px;
   border: 2px solid #7a1dd0;
   border-radius: 15px;
   margin: 0 20px;
   padding: 20px;
   resize: none;
 }
+
+.box-message {
+  position: absolute;
+  bottom: 25px;
+}
+
+.text {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  color:#4f4f4f;
+}
+
+.text-title {
+  margin-left: 25px;
+  margin-bottom: 5px;
+  font-size: 17px;
+  color:#292929;
+}
+
+/* Register page */
+
+.form {
+  width: 100%; 
+  margin-top: 30px;
+}
+
+.paper {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redirect-msg {
+  color: #666464;
+  text-decoration: none;
+
+}
+
+
+
+
+
+
 
 
 
