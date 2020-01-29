@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.float-right {
+  float: right;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+
+/* chat-room */
+
+.sidenav {
+  background-color: blueviolet;
+  height: 800px;
+}
+
+.chat-room {
+  background-color: whitesmoke;
+  height: 800px;
+  float: right;
+}
+
+.user-sidenav {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color:  #fff;
+  text-transform: capitalize;
+}
+
+.menu {
+  margin-top: 27px;
+  padding: 35px 20px;
+  background-color: #7a1dd0;
+}
+
+.menu-itens {
+  color:bisque;
+  font-size: 17px;
+  text-transform: uppercase;
+  margin-top: 35px;
+}
+
+.channels {
+  margin: 10px 0 10px 10px;
+  text-transform: lowercase;
+  color:#fff;
+}
+
+.users {
+  margin: 10px 0 10px 10px;
+  text-transform: capitalize;
+  color:#fff;
+}
+
+.h-line {
+  height: 1px;
+  margin-top: 70px;
+  background-color: #dfdada;
+}
+
+.input-message {
+  max-height: 100px;
+  width: 1000px;
+  border: 2px solid #7a1dd0;
+  border-radius: 15px;
+  margin: 0 20px;
+  padding: 20px;
+  resize: none;
+}
+
+.box-message {
+  position: absolute;
+  bottom: 25px;
+}
+
+.text {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  color:#4f4f4f;
+}
+
+.text-title {
+  margin-left: 25px;
+  margin-bottom: 5px;
+  font-size: 17px;
+  color:#292929;
+}
+
+/* Register page */
+
+.form {
+  width: 100%; 
+  margin-top: 30px;
+}
+
+.paper {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redirect-msg {
+  color: #666464;
+  text-decoration: none;
+
+}
+
+/* modal */
+.modal-title {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color:#383838;
+  text-transform: uppercase;
+}
+
+.modal-container{
+  position: relative;
+  right: 60px;
+  top: 20px;
+  float: right;
+}
+
+/* Input */
+.search-input {
+  display: 'flex';
+  flex-wrap: 'wrap';
+  width:300px;
+  margin-left: 25px;
+  margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
