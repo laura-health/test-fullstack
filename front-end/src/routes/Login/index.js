@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 import { useStyles } from '../makeStyles';
+import { CHAT_ROOM } from '../../common';
 
 
 export default function SignIn() {
@@ -27,6 +28,10 @@ export default function SignIn() {
   const handleChange = (e) => {
     e.persist();
     setAuth(auth => ({ ...auth, [e.target.name]: e.target.value }));
+  };
+
+  const toRoom = async () => {
+    window.location.pathname = CHAT_ROOM
   };
 
   return (
@@ -77,6 +82,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={toRoom}
           >
             Sign In
             </Button>

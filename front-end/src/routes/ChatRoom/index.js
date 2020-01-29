@@ -58,7 +58,7 @@ const ChatRoom = () => {
     return (
         <Grid container>
             <Grid item xs={2} className="sidenav">
-                <div className="user-sidenav">Vivian}</div>
+                <div className="user-sidenav">Vivian</div>
                 <div className="menu">
                     <div style={{ marginBottom: 20 }}>
                         <span className="menu-itens">Rooms</span>
